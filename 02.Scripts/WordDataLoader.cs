@@ -22,7 +22,7 @@ public class WordDataLoader : MonoBehaviour
     {
         if (wordUIAry == null)
         {
-            Debug.Log("wordBlockAry is null - " + transform.name);
+            // WordBlockAry is null
             return;
         }
 
@@ -54,27 +54,4 @@ public class WordDataLoader : MonoBehaviour
             textAry[i].text = wordAry[i];
         }
     }
-
-
 }
-/*
-
-    public void ChatPost()
-{
-    WWWForm form = new WWWForm();
-    form.AddField("position", pos.text);
-    form.AddField("content", content.text);
-
-    StartCoroutine(Post(form));
-}
-
-IEnumerator Post(WWWForm form)
-{
-    using (UnityWebRequest www = UnityWebRequest.Post(WebURL, form)) // 반드시 using을 써야한다
-    {
-        yield return www.SendWebRequest();
-    }
-    StartCoroutine(Get());
-}
-
- */

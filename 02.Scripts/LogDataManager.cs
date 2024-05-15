@@ -16,8 +16,6 @@ public class LogDataManager : MonoBehaviour
     const string WebURL = "https://script.google.com/macros/s/AKfycbwN8vtm5YKgwl6oaPrOJUf5n-l94CA4TdghJqFu/exec";
     public UnityWebRequest www;
 
-    string stringData;
-
     public void searchMatch()
     {
         WWWForm form = new WWWForm();
@@ -40,9 +38,8 @@ public class LogDataManager : MonoBehaviour
     {
         using (UnityWebRequest www = UnityWebRequest.Post(WebURL, form)) // 반드시 using을 써야한다
         {
-            Debug.Log("postStart");
+            // postStart
             yield return www.SendWebRequest();
-            Debug.Log("postFin");
             if (www.isDone) Response(www.downloadHandler.text);
         }
     }
@@ -53,8 +50,7 @@ public class LogDataManager : MonoBehaviour
         if (string.IsNullOrEmpty(json)) return;
 
         GD = JsonUtility.FromJson<GoogleData>(json);
-        Debug.Log("func : " + GD.func + "  / result : " + GD.result +"  / msg : "+ GD.msg);
-
+        // func activated
         if (GD.func == "searchMatch")
             gv.displayManager.activateMatchResponse(GD.msg);
     }

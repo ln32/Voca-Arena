@@ -59,7 +59,6 @@ public class DisplayManager : MonoBehaviour
                 temp += "/";
         }
 
-        Debug.Log(temp);
         return temp;
     }
 

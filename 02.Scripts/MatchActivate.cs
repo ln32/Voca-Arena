@@ -15,8 +15,8 @@ public class MatchActivate : MonoBehaviour
         string[] codeDataAry = _serialCode.Split('/');
 
         if (codeDataAry.Length == 0)
-        {
-            Debug.Log("code is broken - " + serialCode);
+        {            
+            // Input Code is broken 
             return;
         }
 
@@ -32,7 +32,7 @@ public class MatchActivate : MonoBehaviour
         matchStartTime = gv.gameTime;
         if (codeDataAry.Length != 6)
         {
-            Debug.Log("matchCase0 is broken - " + codeDataAry.Length);
+            // MatchCase is broken 
             return;
         }
 
@@ -94,16 +94,12 @@ public class MatchActivate : MonoBehaviour
         {
             downloadLogData.Add(data[i]);
         }
-
-        Debug.Log(downloadLogData);
     }
 
     private void Update()
     {
         if (downloadLogData.Count != 0)
         {
-            Debug.Log(float.Parse(downloadLogData[1]) < matchStartTime - gv.gameTime);
-
             if (float.Parse(downloadLogData[1]) < gv.gameTime - matchStartTime)
             {
 
